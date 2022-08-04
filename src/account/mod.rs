@@ -2,10 +2,9 @@ use fake::{Dummy, Fake, Faker};
 use rand::Rng;
 
 // ex1
-#[derive(Dummy, Clone)]
+#[derive(Debug, Clone)]
 struct Account {
-    #[dummy(faker = "1..=1000")]
-    pub(crate) id: usize,
+    pub(crate) id: String,
     username: String,
     display_name: String,
 }
@@ -15,12 +14,12 @@ pub enum AccountError {
     Unknown,
 }
 
-pub fn create(username: &str, display_name: &str) -> Account {
+pub fn create(id: &str, username: &str, display_name: &str) -> Account {
     let mut rng = rand::thread_rng();
     let new_id: usize = rng.gen_range(1001..2000);
     // ex2
     Account {
-        id: new_id,
+        id: String::from(id),
         username: String::from(username),
         display_name: String::from(display_name),
     }
