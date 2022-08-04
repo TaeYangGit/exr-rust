@@ -5,14 +5,14 @@ use rand::Rng;
 #[derive(Dummy, Clone)]
 struct Account {
     #[dummy(faker = "1..=1000")]
-    id: usize,
+    pub(crate) id: usize,
     username: String,
     display_name: String,
 }
 
-// ex3
-enum AccountError {
-
+#[derive(Debug, PartialEq)]
+pub enum AccountError {
+    Unknown,
 }
 
 pub fn create(username: &str, display_name: &str) -> Account {
@@ -22,7 +22,7 @@ pub fn create(username: &str, display_name: &str) -> Account {
     Account {
         id: new_id,
         username: String::from(username),
-        display_name: String::from(display_name)
+        display_name: String::from(display_name),
     }
 }
 
