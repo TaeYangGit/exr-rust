@@ -17,11 +17,11 @@ fn main() {
 
     // ex2. account::create(...)는 내부적으로 literal 생성 스타일을 사용 중인데 newType 패턴을 사용하도록 리펙토링하시오
 
-    // println!();
+    println!();
     // // ex3. account::list(...) 가 10 개의 account를 리턴하도록 해당 함수를 완성하시오
-    // let users = list().unwrap();
-    // println!("there are {} user(s).", users.len());
-    // println!("{:#?}", users);
+    let users = list().unwrap();
+    println!("there are {} user(s).", users.len());
+    println!("{:#?}", users);
 
     // ex4.
     // - 알수 없는 에러
@@ -30,7 +30,7 @@ fn main() {
     // - not found
     // 등을 가지고 있는 account::AccountError Enum을 완성하고
     // 다음의 get_by_username 호출시에 AccountError중 하나를 발생시키도록 get_by_username을 완성하시오
-    // println!();
+    println!();
 
     // 아래의 주석을 제거하고 동작 하도록 만드시오
 
