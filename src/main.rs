@@ -3,7 +3,7 @@ use crate::account::{create, get_by_username, list, AccountError};
 mod account;
 
 fn main() {
-    let new_user = create("kimtaeyang", "abc_cho", "abc choco");
+    let new_user = create(1, "abc_cho", "abc choco");
     println!("new user({}) is created.", new_user.id);
     // ex1. 아래의 println 매크로를 요구사항에 맞춰 동작하게끔 account/mod.rs의 코드를 수정하시오
     /* 출력 결과는 다음과 같아야 한다
