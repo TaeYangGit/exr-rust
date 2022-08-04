@@ -6,7 +6,7 @@ use std::usize;
 #[derive(Debug, Dummy, Clone)]
 struct Account {
     #[dummy(faker = "1..=1000")]
-    id: usize,
+    pub id: usize,
     username: String,
     display_name: String,
 }
@@ -26,16 +26,15 @@ pub enum AccountError {
     Unknown,
 }
 
-pub fn create(id: usize, username: &str, display_name: &str) -> Account {
-    let mut rng = rand::thread_rng();
-    let new_id: usize = rng.gen_range(1001..2000);
+pub fn create(username: &str, display_name: &str) -> Account {
+    let new_id: usize = rand::thread_rng().gen_range(1001..2000);
     // ex2
-    Account::new(id, username, display_name);
+    Account::new(new_id, username, display_name);
 }
 
 pub fn list() -> Result<Vec<Account>, AccountError> {
     // ex3
-    // ???.map(|_| Faker.fake()).collect::<Vec<Account>>();
+    Account.map(|_| Faker.fake()).collect::<Vec<Account>>();
     Ok(vec![])
 }
 
